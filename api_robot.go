@@ -70,7 +70,7 @@ func (c *DingTalkClient) SendRobotMarkdownAtMessage(accessToken string, title st
 	return data, err
 }
 
-func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title string, msg string, btns []map[string]string, btnOrientation string, hideAvatar string) (data MessageResponse, err error) {
+func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title string, msg string, btns []map[string]interface{}, btnOrientation string, hideAvatar string) (data MessageResponse, err error) {
 	params := url.Values{}
 	params.Add("access_token", accessToken)
 	request := map[string]interface{}{
