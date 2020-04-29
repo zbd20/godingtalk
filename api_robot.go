@@ -70,7 +70,7 @@ func (c *DingTalkClient) SendRobotMarkdownAtMessage(accessToken string, title st
 	return data, err
 }
 
-func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title string, msg string, btns []map[string]interface{}, btnOrientation string, hideAvatar string) (data MessageResponse, err error) {
+func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title string, msg string, btns []map[string]interface{}, btnOrientation string) (data MessageResponse, err error) {
 	params := url.Values{}
 	params.Add("access_token", accessToken)
 	request := map[string]interface{}{
@@ -78,7 +78,6 @@ func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title st
 		"actionCard": map[string]interface{}{
 			"title":          title,
 			"text":           msg,
-			"hideAvatar":     hideAvatar,
 			"btnOrientation": btnOrientation,
 			"btns":           btns,
 		},
@@ -87,7 +86,7 @@ func (c *DingTalkClient) SendRobotActionCardMessage(accessToken string, title st
 	return data, err
 }
 
-func (c *DingTalkClient) SendRobotActionCardAtMessage(accessToken string, title string, msg string, btns []map[string]interface{}, btnOrientation string, hideAvatar string, at *RobotAtList) (data MessageResponse, err error) {
+func (c *DingTalkClient) SendRobotActionCardAtMessage(accessToken string, title string, msg string, btns []map[string]interface{}, btnOrientation string, at *RobotAtList) (data MessageResponse, err error) {
 	params := url.Values{}
 	params.Add("access_token", accessToken)
 	request := map[string]interface{}{
@@ -95,7 +94,6 @@ func (c *DingTalkClient) SendRobotActionCardAtMessage(accessToken string, title 
 		"actionCard": map[string]interface{}{
 			"title":          title,
 			"text":           msg,
-			"hideAvatar":     hideAvatar,
 			"btnOrientation": btnOrientation,
 			"btns":           btns,
 		},
